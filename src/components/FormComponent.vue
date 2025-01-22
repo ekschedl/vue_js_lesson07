@@ -86,6 +86,7 @@ export default {
         checkbox: "false",
         radio: "1",
       },
+      intervalId: null,
     };
   },
   methods: {
@@ -93,6 +94,32 @@ export default {
       console.log(event.target);
     },
   },
+  // beforeCreate() {
+  //   console.log("beforeCreate");
+  // },
+  // created() {
+  //   console.log("created");
+  // },
+  // beforeMount() {
+  //   console.log("beforeMount");
+  // },
+  mounted() {
+    this.intervalId = setInterval(() => {
+      console.log("1");
+    }, 1000);
+  },
+  // beforeDestroy() {
+  //   console.log("beforeDestroy");
+  // },
+  destroyed() {
+    clearInterval(this.intervalId);
+  },
+  // beforeUpdate() {
+  //   console.log("beforeUpdate");
+  // },
+  // updated() {
+  //   console.log("updated");
+  // },
 };
 </script>
 
