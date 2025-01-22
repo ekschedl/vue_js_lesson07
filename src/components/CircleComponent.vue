@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="circle circle-big">
-      <div class="circle circle-mini">
-        <button>click</button>
+    <div @click.stop="logger('big')" class="circle circle-big">
+      <div @click.stop="logger('small')" class="circle circle-mini">
+        <button @click.stop="logger('button')">click</button>
       </div>
     </div>
   </div>
@@ -10,8 +10,12 @@
 
 <script>
 export default {
-
-}
+  methods: {
+    logger(str) {
+      console.log(str);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

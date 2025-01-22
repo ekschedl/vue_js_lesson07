@@ -5,7 +5,7 @@
     <div class="mb-3">
       <button @click="count--" class="mr-1">Dec-</button>
       <button @click="count++" class="mr-1">Inc+</button>
-      <button @click="resetCount" class="mr-1">Reset</button>
+      <button @click="resetCount(0, $event)" class="mr-1">Reset</button>
       <span>{{ countValue }}</span>
     </div>
   </div>
@@ -23,8 +23,9 @@ export default {
     },
   },
   methods: {
-    resetCount() {
-      this.count = 0;
+    resetCount(value, event) {
+      console.log(event.target);
+      this.count = value;
     },
   },
 };

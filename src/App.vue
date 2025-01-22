@@ -1,8 +1,9 @@
 <template>
   <div class="container">
     <div class="nav mb-3">
-      <button>next</button>
-      <button>prev</button>
+      <button @click="decIndexPage()">prev</button>
+
+      <button @click="incIndexPage()">next</button>
     </div>
 
     <button-component v-if="indexPage === 1"></button-component>
@@ -30,8 +31,24 @@ export default {
   },
   data() {
     return {
-      indexPage: 1,
+      indexPage: 2,
     };
+  },
+  methods: {
+    incIndexPage() {
+      if (this.indexPage === 4) {
+        this.indexPage = 1;
+      } else {
+        this.indexPage++;
+      }
+    },
+    decIndexPage() {
+      if (this.indexPage === 1) {
+        this.indexPage = 4;
+      } else {
+        this.indexPage--;
+      }
+    },
   },
 };
 </script>
